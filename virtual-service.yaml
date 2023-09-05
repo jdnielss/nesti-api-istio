@@ -1,0 +1,15 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: api-route
+  namespace: istio-system
+spec:
+  hosts:
+    - <domain>
+  gateways:
+    - api-gateway
+  http:
+    - name: "api-route"
+      route:
+        - destination:
+            host: nest-product-api.core.svc.cluster.local
